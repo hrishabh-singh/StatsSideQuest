@@ -7,17 +7,15 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="game-container">
-    <h1>🐍 Snake</h1>
-    <div class="game-hud">
-      <span>Score: <span id="score">0</span></span>
-      <span>Best: <span id="best-score">0</span></span>
+  <div class="menu-container">
+    <h1>🎉 Welcome!</h1>
+    <p>What do you want to play?</p>
+    <div class="menu-buttons">
+      <a class="menu-button" href="snake.html">🐍 Snake</a>
+      <a class="menu-button" href="wordle.html">🟩 Wordle</a>
     </div>
-    <canvas id="game-canvas" width="400" height="400"></canvas>
-    <p class="hint">Use arrow keys or WASD to move. Press Space to restart.</p>
     <a id="logout-link" href="index.html">Log out</a>
   </div>
-  <script src="main.js"></script>
-  <script src="snake.js"></script>
+  <script src="auth.js"></script>
 </body>
 </html>

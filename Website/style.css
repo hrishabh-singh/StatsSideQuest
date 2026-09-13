@@ -15,10 +15,45 @@ body {
 }
 
 .gate-container,
-.main-container {
+.menu-container {
   width: 100%;
   max-width: 420px;
   text-align: center;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.menu-button {
+  display: block;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #374151;
+  background: #1f2937;
+  color: #f3f4f6;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.menu-button:hover {
+  background: #374151;
+}
+
+.page-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.page-links a {
+  color: #93c5fd;
 }
 
 .game-container {
@@ -96,4 +131,8 @@ button:hover {
   display: inline-block;
   margin-top: 16px;
   color: #93c5fd;
+}
+
+.page-links #logout-link {
+  margin-top: 0;
 }

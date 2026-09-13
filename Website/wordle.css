@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-correct: #6aaa64;
+  --color-present: #c9b458;
+  --color-absent: #787c7e;
+  --color-border: #d3d6da;
+  --color-border-filled: #878a8c;
+  --color-text: #1a1a1b;
+  --color-bg: #ffffff;
+  --color-key-bg: #d3d6da;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wordle-header {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.header-links {
+  display: flex;
+  gap: 16px;
+}
+
+.header-links a {
+  color: #1a1a1b;
+  text-decoration: none;
+  font-size: 14px;
+  border: 1px solid var(--color-border);
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.header-links a:hover {
+  background: #f6f7f8;
+}
+
+.wordle-main {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  gap: 16px;
+}
+
+.board {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 5px;
+  width: 100%;
+  max-width: 350px;
+}
+
+.board-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+.tile {
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text);
+  user-select: none;
+}
+
+.tile.filled {
+  border-color: var(--color-border-filled);
+}
+
+.tile.flip {
+  animation: flip 0.5s ease forwards;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.tile.correct {
+  background: var(--color-correct);
+  border-color: var(--color-correct);
+  color: #ffffff;
+}
+
+.tile.present {
+  background: var(--color-present);
+  border-color: var(--color-present);
+  color: #ffffff;
+}
+
+.tile.absent {
+  background: var(--color-absent);
+  border-color: var(--color-absent);
+  color: #ffffff;
+}
+
+.board-row.shake {
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-8px); }
+  40%, 60% { transform: translateX(8px); }
+}
+
+.end-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.end-actions[hidden] {
+  display: none;
+}
+
+#new-game-btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  background: #1a1a1b;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#new-game-btn:hover {
+  background: #3a3a3c;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.key {
+  flex: 1;
+  max-width: 43px;
+  height: 58px;
+  border: none;
+  border-radius: 4px;
+  background: var(--color-key-bg);
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.key:hover {
+  background: #bbc0c4;
+}
+
+.key.wide {
+  max-width: 65px;
+  font-size: 12px;
+}
+
+.key.correct {
+  background: var(--color-correct);
+  color: #ffffff;
+}
+
+.key.present {
+  background: var(--color-present);
+  color: #ffffff;
+}
+
+.key.absent {
+  background: var(--color-absent);
+  color: #ffffff;
+}
+
+.toast-container {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.toast {
+  background: #1a1a1b;
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+@media (max-width: 420px) {
+  .tile {
+    font-size: 24px;
+  }
+  .key {
+    height: 48px;
+    font-size: 11px;
+  }
+}
