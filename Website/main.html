@@ -7,11 +7,17 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="main-container">
-    <h1>🎉 Welcome!</h1>
-    <p>You made it past the password gate. This is the main page of the test site.</p>
+  <div class="game-container">
+    <h1>🐍 Snake</h1>
+    <div class="game-hud">
+      <span>Score: <span id="score">0</span></span>
+      <span>Best: <span id="best-score">0</span></span>
+    </div>
+    <canvas id="game-canvas" width="400" height="400"></canvas>
+    <p class="hint">Use arrow keys or WASD to move. Press Space to restart.</p>
     <a id="logout-link" href="index.html">Log out</a>
   </div>
   <script src="main.js"></script>
+  <script src="snake.js"></script>
 </body>
 </html>

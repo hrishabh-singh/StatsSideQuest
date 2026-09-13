@@ -21,6 +21,35 @@ body {
   text-align: center;
 }
 
+.game-container {
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+}
+
+.game-hud {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#game-canvas {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  background: #111827;
+}
+
+.hint {
+  color: #9ca3af;
+  font-size: 14px;
+  margin: 12px 0 0;
+}
+
 .gate-card {
   background: #1f2937;
   border: 1px solid #374151;
